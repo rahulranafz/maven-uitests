@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="functional tests"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="30.445">
+  <properties />
+  
+  
+            <testcase name="LoginApplication" time="30.445" classname="tests.LoginTest" />
+      
+</testsuite>

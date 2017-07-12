@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Regression Tests]">
+  <test name="functional tests(failed)">
+    <classes>
+      <class name="tests.LoginTest">
+        <methods>
+          <include name="loginPlayer"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- tests.LoginTest -->
+    </classes>
+  </test> <!-- functional tests(failed) -->
+</suite> <!-- Failed suite [Regression Tests] -->
