@@ -1,46 +1,27 @@
 package utilities;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class SearchUrl {
 
-	public String search() throws IOException {
+	public String search(String content, String subject) throws FileNotFoundException {
 
-		String url = "";
-		StringBuilder sb = new StringBuilder();
-		String currentUsersDir = System.getProperty("user.dir");
-		String filepath = currentUsersDir + "\\temporary\\out.txt";
-		FileReader file = new FileReader(filepath);
-		BufferedReader br = new BufferedReader(file);
-		try {
-			String line = br.readLine();
-
-			while (line != null) {
-				sb.append(line);
-				sb.append("\n");
-				line = br.readLine();
-			}
-			url = url + sb.toString();
-
-		} finally {
-			br.close();
+		if (subject == "Please verify your email address") {
+			int i1 = content.indexOf(">http:") + 1;
+			int i2 = content.indexOf("/</a>");
+			String activationUrl = content.substring(i1, i2);
+			System.out.println("Activation Url :" + activationUrl);
+			return activationUrl;
+		} else {
+			int i1 = content.indexOf("<p>Code:") + 9;
+			int i2 = content.indexOf("<p>Best regards");
+			String subPart = content.substring(i1, i2);
+			int i3 = subPart.indexOf("</p>") - 5;
+			int i4 = subPart.indexOf("</p>");
+			String activationCode = subPart.substring(i3, i4);
+			System.out.println("Activation Code :" + activationCode);
+			return activationCode;
 		}
 
-		int i1 = url.indexOf("href=\"orderbook.io") + 6;
-		int i2 = url.indexOf("\" target=");
-		String activationUrl = url.substring(i1, i2);
-		System.out.println(activationUrl);
-		return activationUrl;
 	}
-
-	public static void main(String[] args) throws IOException {
-		SearchUrl searchurl = new SearchUrl();
-		String activationUrl = "";
-
-		activationUrl = searchurl.search();
-		System.out.println(activationUrl);
-	}
-
 }

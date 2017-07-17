@@ -3,12 +3,12 @@
 <suite name="Failed suite [Regression Tests]">
   <test name="functional tests(failed)">
     <classes>
-      <class name="tests.LoginTest">
+      <class name="tests.TradingTest">
         <methods>
-          <include name="loginPlayer"/>
           <include name="closeBrowser"/>
+          <include name="ClickOnTrading"/>
         </methods>
-      </class> <!-- tests.LoginTest -->
+      </class> <!-- tests.TradingTest -->
     </classes>
   </test> <!-- functional tests(failed) -->
 </suite> <!-- Failed suite [Regression Tests] -->
